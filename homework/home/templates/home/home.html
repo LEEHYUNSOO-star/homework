@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>홈페이지</title>
+</head>
+<body>
+    <h1>Welcome to the Home Page!</h1>
+    
+    <h2>게시글 목록</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>  <!-- 게시글 제목과 링크 -->
+                <p>{{ post.created_at }}</p>  <!-- 게시글 작성일 -->
+            </li>
+        {% empty %}
+            <p>게시글이 없습니다.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
